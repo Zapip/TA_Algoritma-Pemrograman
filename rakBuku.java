@@ -4,14 +4,14 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 class Buku {
-    int id;
+    int isbn;
     String judul;
     String penulis;
     int tahun;
     boolean sudahDibaca;
 
-    public Buku(int id, String judul, String penulis, int tahun, boolean sudahDibaca) {
-        this.id = id;
+    public Buku(int isbn, String judul, String penulis, int tahun, boolean sudahDibaca) {
+        this.isbn = isbn;
         this.judul = judul;
         this.penulis = penulis;
         this.tahun = tahun;
@@ -68,7 +68,7 @@ public class rakBuku {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+                    System.out.println("Pilihan tisbnak valisbn. Silakan coba lagi.");
             }
         }
     }
@@ -77,24 +77,24 @@ public class rakBuku {
         Collections.sort(rakBuku, Buku.UrutkanBerdasarkanTahun);
         System.out.println("\n     === Daftar Buku ===\n-------------------------------");
         for (Buku buku : rakBuku) {
-            System.out.println(buku.id + ". " + buku.judul + " (" + buku.tahun + ")");
+            System.out.println(buku.isbn + ". " + buku.judul + " (" + buku.tahun + ")");
         }
         System.out.println();
     }
 
     private static void lihatInformasiBuku() {
         System.out.println("\n      === Lihat Buku ===\n-------------------------------");
-        System.out.print("Masukkan ID buku: ");
-        int idBuku = scanner.nextInt();
+        System.out.print("Masukkan isbn buku: ");
+        int isbnBuku = scanner.nextInt();
 
-        Buku bukuDitemukan = temukanBuku(idBuku);
+        Buku bukuDitemukan = temukanBuku(isbnBuku);
         if (bukuDitemukan == null) {
-            System.out.println("Buku tidak ditemukan.\n");
+            System.out.println("Buku tisbnak ditemukan.\n");
             return;
         }
 
         System.out.println("\n    === Informasi Buku ===\n-------------------------------");
-        System.out.println("ID: " + bukuDitemukan.id);
+        System.out.println("isbn: " + bukuDitemukan.isbn);
         System.out.println("Judul: " + bukuDitemukan.judul);
         System.out.println("Penulis: " + bukuDitemukan.penulis);
         System.out.println("Tahun Terbit: " + bukuDitemukan.tahun);
@@ -115,8 +115,8 @@ public class rakBuku {
         System.out.print("Apakah buku sudah dibaca? (true/false): ");
         boolean sudahDibaca = scanner.nextBoolean();
 
-        int idBaru = rakBuku.isEmpty() ? 1 : rakBuku.get(rakBuku.size() - 1).id + 1;
-        Buku bukuBaru = new Buku(idBaru, judul, penulis, tahun, sudahDibaca);
+        int isbnBaru = rakBuku.isEmpty() ? 1 : rakBuku.get(rakBuku.size() - 1).isbn + 1;
+        Buku bukuBaru = new Buku(isbnBaru, judul, penulis, tahun, sudahDibaca);
         rakBuku.add(bukuBaru);
 
         System.out.println("Buku berhasil ditambahkan.");
@@ -125,12 +125,12 @@ public class rakBuku {
 
     private static void perbaruiBuku() {
         System.out.println("\n    === Perbarui Buku ===\n-------------------------------");
-        System.out.print("Masukkan ID buku: ");
-        int idBuku = scanner.nextInt();
+        System.out.print("Masukkan isbn buku: ");
+        int isbnBuku = scanner.nextInt();
 
-        Buku bukuDitemukan = temukanBuku(idBuku);
+        Buku bukuDitemukan = temukanBuku(isbnBuku);
         if (bukuDitemukan == null) {
-            System.out.println("Buku tidak ditemukan.\n");
+            System.out.println("Buku tisbnak ditemukan.\n");
             return;
         }
 
@@ -175,12 +175,12 @@ public class rakBuku {
 
     private static void hapusBuku() {
         System.out.println("\n      === Hapus Buku ===\n-------------------------------");
-        System.out.print("Masukkan ID buku yang ingin dihapus: ");
-        int idBuku = scanner.nextInt();
+        System.out.print("Masukkan isbn buku yang ingin dihapus: ");
+        int isbnBuku = scanner.nextInt();
 
-        int indeksBuku = temukanIndeksBuku(idBuku);
+        int indeksBuku = temukanIndeksBuku(isbnBuku);
         if (indeksBuku == -1) {
-            System.out.println("Buku tidak ditemukan.\n");
+            System.out.println("Buku tisbnak ditemukan.\n");
             return;
         }
 
@@ -195,18 +195,18 @@ public class rakBuku {
         rakBuku.add(new Buku(3, "Pengembangan Web", "Bob Johnson", 2021, true));
     }
 
-    private static Buku temukanBuku(int idBuku) {
+    private static Buku temukanBuku(int isbnBuku) {
         for (Buku buku : rakBuku) {
-            if (buku.id == idBuku) {
+            if (buku.isbn == isbnBuku) {
                 return buku;
             }
         }
         return null;
     }
 
-    private static int temukanIndeksBuku(int idBuku) {
+    private static int temukanIndeksBuku(int isbnBuku) {
         for (int i = 0; i < rakBuku.size(); i++) {
-            if (rakBuku.get(i).id == idBuku) {
+            if (rakBuku.get(i).isbn == isbnBuku) {
                 return i;
             }
         }
