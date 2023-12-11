@@ -68,7 +68,7 @@ public class rakBuku {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Pilihan tisbnak valisbn. Silakan coba lagi.");
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
             }
         }
     }
@@ -77,7 +77,7 @@ public class rakBuku {
         Collections.sort(rakBuku, Buku.UrutkanBerdasarkanTahun);
         System.out.println("\n     === Daftar Buku ===\n-------------------------------");
         for (Buku buku : rakBuku) {
-            System.out.println(buku.isbn + ". " + buku.judul + " (" + buku.tahun + ")");
+            System.out.println(buku.isbn + " " + buku.judul + " (" + buku.tahun + ")");
         }
         System.out.println();
     }
@@ -89,7 +89,7 @@ public class rakBuku {
 
         Buku bukuDitemukan = temukanBuku(isbnBuku);
         if (bukuDitemukan == null) {
-            System.out.println("Buku tisbnak ditemukan.\n");
+            System.out.println("Buku tidak ditemukan.\n");
             return;
         }
 
@@ -130,7 +130,7 @@ public class rakBuku {
 
         Buku bukuDitemukan = temukanBuku(isbnBuku);
         if (bukuDitemukan == null) {
-            System.out.println("Buku tisbnak ditemukan.\n");
+            System.out.println("Buku tidak ditemukan.\n");
             return;
         }
 
@@ -180,7 +180,7 @@ public class rakBuku {
 
         int indeksBuku = temukanIndeksBuku(isbnBuku);
         if (indeksBuku == -1) {
-            System.out.println("Buku tisbnak ditemukan.\n");
+            System.out.println("Buku tidak ditemukan.\n");
             return;
         }
 
@@ -190,9 +190,9 @@ public class rakBuku {
     }
 
     private static void muatDataDariPenyimpanan() {
-        rakBuku.add(new Buku(1, "Pemrograman Java", "John Doe", 2020, true));
-        rakBuku.add(new Buku(2, "Dasar-dasar Python", "Jane Smith", 2019, false));
-        rakBuku.add(new Buku(3, "Pengembangan Web", "Bob Johnson", 2021, true));
+        rakBuku.add(new Buku(978602647, "Cinta paling Rumit", "Boy Chandra", 2018, false));
+        rakBuku.add(new Buku(978979122, "Perahu Kertas", "Dewi Lestari Dee", 2010, true));
+        rakBuku.add(new Buku(978602947, "Sepotong Hati Yang Baru", "Tere Liye", 2012, false));
     }
 
     private static Buku temukanBuku(int isbnBuku) {
