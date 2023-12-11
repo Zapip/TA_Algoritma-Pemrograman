@@ -5,17 +5,17 @@ import java.util.Scanner;
 
 class Buku {
     int isbn;
+    int tahun;
     String judul;
     String penulis;
-    int tahun;
-    boolean sudahDibaca;
+    boolean status;
 
-    public Buku(int isbn, String judul, String penulis, int tahun, boolean sudahDibaca) {
+    public Buku(int isbn, String judul, String penulis, int tahun, boolean status) {
         this.isbn = isbn;
         this.judul = judul;
         this.penulis = penulis;
         this.tahun = tahun;
-        this.sudahDibaca = sudahDibaca;
+        this.status = status;
     }
 
     public static Comparator<Buku> UrutkanBerdasarkanTahun = new Comparator<Buku>() {
@@ -98,7 +98,7 @@ public class rakBuku {
         System.out.println("Judul: " + bukuDitemukan.judul);
         System.out.println("Penulis: " + bukuDitemukan.penulis);
         System.out.println("Tahun Terbit: " + bukuDitemukan.tahun);
-        System.out.println("Sudah Dibaca: " + bukuDitemukan.sudahDibaca + "\n");
+        System.out.println("Sudah Dibaca: " + bukuDitemukan.status + "\n");
     }
 
     private static void tambahBuku() {
@@ -113,10 +113,10 @@ public class rakBuku {
         int tahun = scanner.nextInt();
 
         System.out.print("Apakah buku sudah dibaca? (true/false): ");
-        boolean sudahDibaca = scanner.nextBoolean();
+        boolean status = scanner.nextBoolean();
 
         int isbnBaru = rakBuku.isEmpty() ? 1 : rakBuku.get(rakBuku.size() - 1).isbn + 1;
-        Buku bukuBaru = new Buku(isbnBaru, judul, penulis, tahun, sudahDibaca);
+        Buku bukuBaru = new Buku(isbnBaru, judul, penulis, tahun, status);
         rakBuku.add(bukuBaru);
 
         System.out.println("Buku berhasil ditambahkan.");
@@ -138,7 +138,7 @@ public class rakBuku {
         System.out.println("Judul       : " + bukuDitemukan.judul);
         System.out.println("Penulis     : " + bukuDitemukan.penulis);
         System.out.println("Tahun Terbit: " + bukuDitemukan.tahun);
-        System.out.println("Sudah Dibaca: " + bukuDitemukan.sudahDibaca);
+        System.out.println("Sudah Dibaca: " + bukuDitemukan.status);
         System.out.println("-------------------------------");
 
         System.out.println("\nDetail Baru:\n-------------------------------");
@@ -164,9 +164,9 @@ public class rakBuku {
 
         System.out.print("Apakah buku sudah dibaca? (true/false, tekan Enter untuk tetap sama): ");
         scanner.nextLine();
-        String sudahDibacaInput = scanner.nextLine();
-        if (!sudahDibacaInput.isEmpty()) {
-            bukuDitemukan.sudahDibaca = Boolean.parseBoolean(sudahDibacaInput);
+        String statusInput = scanner.nextLine();
+        if (!statusInput.isEmpty()) {
+            bukuDitemukan.status = Boolean.parseBoolean(statusInput);
         }
 
         System.out.println("-------------------------------\nBuku berhasil diperbarui.");
