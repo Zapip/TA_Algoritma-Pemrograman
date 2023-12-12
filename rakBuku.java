@@ -32,6 +32,7 @@ public class rakBuku {
     public static void main(String[] args) {
         System.out.println();
         muatDataDariPenyimpanan();
+        int pilihan = 0;
 
         while (true) {
             System.out.println("-------------------------------");
@@ -45,8 +46,13 @@ public class rakBuku {
             System.out.println("6. Keluar");
             System.out.println("-------------------------------");
             System.out.print("Pilih opsi: ");
-            int pilihan = scanner.nextInt();
-            scanner.nextLine(); // Konsumsi newline
+            if (scanner.hasNextInt()) { // ga masuk
+                pilihan = scanner.nextInt();
+            } else { // ga masuk
+                scanner.nextLine(); // ga masuk
+                System.out.println("\n\n======Input harus berupa angka!!======\n"); // ga masuk
+                continue; // ga masuk
+            }
 
             switch (pilihan) {
                 case 1:
@@ -212,4 +218,5 @@ public class rakBuku {
         }
         return -1;
     }
+
 }
