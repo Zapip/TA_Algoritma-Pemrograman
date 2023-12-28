@@ -118,6 +118,8 @@ public class rakBuku {
     }
 
     private static void tambahBuku() {
+        System.out.println("Buku saat ini: ");
+        tampilkanBuku();
         System.out.println("\n     === Tambah Buku ===\n-------------------------------");
         System.out.print("Masukkan judul buku: ");
         scanner.nextLine();
@@ -207,9 +209,9 @@ public class rakBuku {
     }
 
     private static void muatDataDariPenyimpanan() {
-        rakBuku.add(new Buku(1, "Cinta paling Rumit", "Boy Chandra", 2018, false));
-        rakBuku.add(new Buku(2, "Perahu Kertas", "Dewi Lestari Dee", 2010, true));
-        rakBuku.add(new Buku(3, "Sepotong Hati Yang Baru", "Tere Liye", 2012, false));
+        rakBuku.add(new Buku(3, "Cinta paling Rumit", "Boy Chandra", 2018, false));
+        rakBuku.add(new Buku(1, "Perahu Kertas", "Dewi Lestari Dee", 2010, true));
+        rakBuku.add(new Buku(2, "Sepotong Hati Yang Baru", "Tere Liye", 2012, false));
     }
 
     private static Buku temukanBuku(int nomorBuku) {
