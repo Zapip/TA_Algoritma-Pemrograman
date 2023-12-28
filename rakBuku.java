@@ -71,7 +71,17 @@ public class rakBuku {
                     hapusBuku();
                     break;
                 case 6:
-                    System.exit(0);
+                    System.out.println("Apakah anda yakin untuk keluar:");
+                    System.out.println("1. Keluar\n2. Batal keluar");
+                    System.out.print("Masukkan pilihan: ");
+                    int keluar = scanner.nextInt();
+                    if (keluar == 1) {
+                        System.out.println("Terimakasih menggunakan program ini, Selesai.");
+                        System.exit(0);
+                    } else {
+                        System.out.print("Batal keluar");
+                        System.out.println("");
+                    }
                     break;
                 default:
                     System.out.println("Pilihan tidak valid. Silakan coba lagi.");
